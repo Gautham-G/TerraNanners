@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  /* Retro Pokemon Color Palette */
+  --pokemon-red: #ff6b6b;
+  --pokemon-blue: #4dabf7;
+  --pokemon-yellow: #ffd43b;
+  --pokemon-green: #69db7c;
+  --pokemon-purple: #9775fa;
+  --pokemon-dark: #2d3748;
+  --pokemon-darker: #1a202c;
+  --pokemon-light: #f7fafc;
+  --pokemon-border: #4a5568;
+  
+  /* Subtle banana accents */
+  --banana-yellow: #fff59d;
+  --banana-light: #fffde7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+body {
+  background: linear-gradient(135deg, var(--pokemon-darker) 0%, var(--pokemon-dark) 100%);
+  color: var(--pokemon-light);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Retro Components */
+.card {
+  background: var(--pokemon-dark);
+  border: 3px solid var(--pokemon-border);
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.1),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  margin: 8px;
+}
+
+.btn-primary {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 12px 16px;
+  border: 3px solid var(--pokemon-border);
+  background: var(--pokemon-blue);
+  color: white;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.3),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+    3px 3px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--pokemon-yellow);
+  color: var(--pokemon-dark);
+  transform: translate(-1px, -1px);
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.3),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 12px 16px;
+  border: 3px solid var(--pokemon-green);
+  background: transparent;
+  color: var(--pokemon-green);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: var(--pokemon-green);
+  color: var(--pokemon-dark);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Retro Messages */
+.retro-message {
+  padding: 16px;
+  margin: 16px 0;
+  border: 3px solid;
+  font-size: 10px;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.retro-message.success {
+  background: var(--pokemon-green);
+  border-color: #51cf66;
+  color: white;
+}
+
+.retro-message.error {
+  background: var(--pokemon-red);
+  border-color: #ff5252;
+  color: white;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Pixel Art Elements */
+.pixel-banana {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--banana-yellow);
+  border: 1px solid #f9c74f;
+  position: relative;
+  animation: bob 2s ease-in-out infinite;
+}
+
+.pixel-banana::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--pokemon-green);
+  border: 1px solid #51cf66;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 32px; }
+.mt-4 { margin-top: 32px; }
+.p-4 { padding: 32px; }
+.w-full { width: 100%; }
+.max-w-4xl { max-width: 56rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.gap-4 { gap: 16px; }
+.space-y-8 > * + * { margin-top: 32px; }
+.hidden { display: none; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.bg-red-500 { background-color: var(--pokemon-red); }
+.text-white { color: white; }
+.text-gray-400 { color: #9ca3af; }
+.border-2 { border-width: 2px; }
+.border-dashed { border-style: dashed; }
+.border-gray-600 { border-color: var(--pokemon-border); }
+.rounded-lg { border-radius: 4px; }
+.rounded-full { border-radius: 50%; }
+.cursor-pointer { cursor: pointer; }
+.transition-all { transition: all 0.3s ease; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .md\\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Retro Text Styling */
+.retro-text {
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+h1, h2, h3 {
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 16px;
+  color: var(--pokemon-yellow);
+}
+
+h2 {
+  font-size: 14px;
+  color: var(--pokemon-blue);
+}
+
+h3 {
+  font-size: 12px;
+  color: var(--pokemon-green);
+}
+
+/* Enhanced Button Styles */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(50%);
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.3),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+    3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Room Selection Improvements */
+.room-selection-card {
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.room-selection-card:hover {
+  border-color: var(--pokemon-yellow);
+  transform: scale(1.02);
+}
+
+.room-selection-card.selected {
+  border-color: var(--pokemon-yellow);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Retro UI Elements */
+.retro-text {
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 4px 4px 0 rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.retro-subtext {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+}
+
+.retro-button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.retro-button-active {
+  animation: retro-glow 1.5s ease-in-out infinite alternate;
+  transform: translateY(-1px);
+}
+
+.retro-button-inactive:hover {
+  transform: translateY(-2px);
+  animation: retro-hover 0.3s ease;
+}
+
+.shadow-retro {
+  box-shadow: 
+    0 4px 0 rgba(0, 0, 0, 0.4),
+    0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-retro-active {
+  box-shadow: 
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(255, 212, 59, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+@keyframes retro-glow {
+  0% { 
+    box-shadow: 
+      0 2px 0 rgba(0, 0, 0, 0.4),
+      0 4px 12px rgba(255, 212, 59, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  }
+  100% { 
+    box-shadow: 
+      0 2px 0 rgba(0, 0, 0, 0.4),
+      0 6px 20px rgba(255, 212, 59, 0.6),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes retro-hover {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(-2px); }
+}
+
+.retro-card {
+  background: #2d3748;
+  border: 3px solid #ffd43b;
+  box-shadow: 
+    0 6px 0 rgba(0, 0, 0, 0.4),
+    0 8px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.retro-input {
+  background: #1a202c;
+  border: 2px solid #4a5568;
+  color: #ffd43b;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 12px;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.retro-input:focus {
+  outline: none;
+  border-color: #ffd43b;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(255, 212, 59, 0.5);
+}
+
+/* Banana Character */
+.banana-character {
+  display: inline-block;
+  font-size: 24px;
+  animation: banana-bounce 2s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes banana-bounce {
+  0%, 100% { transform: translateY(0px) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.banana-trail {
+  position: relative;
+}
+
+.banana-trail::after {
+  content: '✨';
+  position: absolute;
+  animation: banana-sparkle 1.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes banana-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Pixel Art Styling */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Game Canvas Styling */
+.game-canvas {
+  border: 4px solid var(--pokemon-yellow);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px rgba(255, 212, 59, 0.3),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.1),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+}
