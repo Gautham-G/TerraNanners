@@ -1,4 +1,8 @@
-# 🍌 AI World Explorer
+# 🍌 TerraNanners!
+
+Google NanoBanana Hackathon submission
+
+Check this out : https://www.youtube.com/watch?v=IHgCfvnW6NA
 
 Transform your photos into playable game worlds with AI! Create immersive room-based adventures where you control a banana character exploring AI-generated environments.
 
